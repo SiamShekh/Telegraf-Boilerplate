@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-const bot = new Telegraf("7706471012:AAGCjO2FAHcLyvhC8pzF2QtmN66Ke3SWRUs");
+const bot = new Telegraf(TOKEN);
 
 bot.on(message("text"), (ctx) => ctx.reply("Hello"));
 
@@ -26,7 +26,7 @@ const port = process.env.PORT || 3000;
 app.listen(port, async () => {
   console.log(`Server is running on port ${port}`);
 
-  const webhookUrl = `https://telegraf-steel.vercel.app/api/bot`;
+  const webhookUrl = `https://DOMAIN/api/bot`;
   try {
     await bot.telegram.setWebhook(webhookUrl);
     console.log(`Webhook set to ${webhookUrl}`);
